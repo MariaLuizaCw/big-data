@@ -107,7 +107,7 @@ def integrate_data(data_directories):
                         'Nome': row['Nome'],
                         'Tipo_Cliente': row['Tipo_Cliente'],
                         'Documento': row['Documento'],
-                        'Endereco': row['ID_Endereco'],
+                        'Endereco': row['Endereco'],
                         'Telefone': row['Telefone'],
                         'Email': row['Email'],
                         'CNH': row['CNH'],
@@ -226,7 +226,7 @@ def integrate_data(data_directories):
                 elif company == 'antonny':
                     dim_patio = dim_patio.append({
                         'ID_Patio_Antonny': row['ID_Pátio'],
-                        'Nome': row['ID_Endereco'],
+                        'Nome': row['Endereco'],
                         'Capacidade': row['Capacidade']
                     }, ignore_index=True)
                 elif company == 'siqueira':
