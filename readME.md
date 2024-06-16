@@ -27,3 +27,5 @@ Arquivo: [ETL.py](ETL.py)
 
 ### Geração dos relatórios e da matriz de percentuais de movimentação entre pátios
 
+Arquivos: [controlePatio.sql](sql/controlePatio.sql), [controleLocacao.sql](sql/controleLocacao.sql), [controleReserva.sql](sql/controleReserva.sql), [veiculosMaisAlugados.sql](sql/veiculosMaisAlugados.sql), [cadeiaMarkov.sql](sql/cadeiaMarkov.sql)
+
