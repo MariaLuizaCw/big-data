@@ -1,3 +1,10 @@
+-- INTEGRANTES DO GRUPO --
+--Igor Telles - 120040283
+--Sylvio Mello - 119093388
+--Maria Luiza C. Wuillaume - 120040005
+--Felipe Vilela - 119093087 
+--
+
 -- Dimensão Cliente
 CREATE TABLE Dim_Cliente (
     ID_Cliente INT PRIMARY KEY,

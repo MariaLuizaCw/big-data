@@ -1,3 +1,10 @@
+### INTEGRANTES DO GRUPO ###
+#Igor Telles - 120040283
+#Sylvio Mello - 119093388
+#Maria Luiza C. Wuillaume - 120040005
+#Felipe Vilela - 119093087 
+###
+
 import pandas as pd
 from functools import partial
 from sqlalchemy import create_engine
