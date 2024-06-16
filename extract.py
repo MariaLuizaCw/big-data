@@ -76,7 +76,7 @@ company_tables = {
     'ANTONNY':  ['Grupos_Veículos', 'Veículos', 'Clientes', 'Reservas', 'Locações', 'Pátios', 'Endereço', 'Prontuário']
 }
 
-transformations = {
+transformations_company = {
     'SYMA': [], 
     'RAYSSA': [],
     'SIQUEIRA': [],
