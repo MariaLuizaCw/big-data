@@ -1,13 +1,17 @@
-import pandas as pd
-import glob
 import os
+import pandas as pd
+from sqlalchemy import create_engine
+
+# Configuração do banco de dados
+DATABASE_URI = 'postgresql://username:password@localhost:5432/dbname'
+engine = create_engine(DATABASE_URI)
 
 # Define the path to the data directories
 data_directories = {
-    'syma': '/mnt/data/syma',
-    'rayssa': '/mnt/data/rayssa',
-    'antonny': '/mnt/data/antonny',
-    'siqueira': '/mnt/data/siqueira'
+    'syma': '/data/syma',
+    'rayssa': '/data/rayssa',
+    'antonny': '/data/antonny',
+    'siqueira': '/data/siqueira'
 }
 
 # Function to read CSVs from a directory and concatenate them
@@ -16,6 +20,10 @@ def read_csv_from_directory(directory, table_name):
     if os.path.exists(file_path):
         return pd.read_csv(file_path)
     return pd.DataFrame()
+
+# Função para carregar dados no banco de dados
+def load_data_to_db(df, table_name):
+    df.to_sql(table_name, engine, if_exists='append', index=False)
 
 # Read and integrate data for each table
 def integrate_data(data_directories):
@@ -55,13 +63,15 @@ def integrate_data(data_directories):
     ])
 
     for company, directory in data_directories.items():
-        cliente = read_csv_from_directory(directory, 'Cliente')
-        veiculo = read_csv_from_directory(directory, 'Veiculo')
+        ### EXTRACT ###
+        cliente   = read_csv_from_directory(directory, 'Cliente')
+        veiculo   = read_csv_from_directory(directory, 'Veiculo')
         categoria = read_csv_from_directory(directory, 'Categoria')
-        patio = read_csv_from_directory(directory, 'Patio')
-        reserva = read_csv_from_directory(directory, 'Reserva')
-        locacao = read_csv_from_directory(directory, 'Locacao')
+        patio     = read_csv_from_directory(directory, 'Patio')
+        reserva   = read_csv_from_directory(directory, 'Reserva')
+        locacao   = read_csv_from_directory(directory, 'Locacao')
 
+        ### TRANSFORM ####
         # Integrate Cliente data
         if not cliente.empty:
             for index, row in cliente.iterrows():
@@ -325,3 +335,14 @@ def integrate_data(data_directories):
                         'Created_at': row['Created_at'],
                         'Updated_at': row['Updated_at']
                     }, ignore_index=True)
+        
+        ### LOAD ###
+        load_data_to_db(dim_cliente, 'Dim_Cliente')
+        load_data_to_db(dim_veiculo, 'Dim_Veiculo')
+        load_data_to_db(dim_categoria, 'Dim_Categoria')
+        load_data_to_db(dim_patio, 'Dim_Patio')
+        load_data_to_db(fato_reserva, 'Fato_Reserva')
+        load_data_to_db(fato_locacao, 'Fato_Locacao')
+
+
+integrate_data(data_directories)
