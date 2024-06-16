@@ -1,4 +1,4 @@
-# Trabalho Big Data
+# Trabalho Big Data - Grupo Syma
 
 ## Integrantes do grupo
 
