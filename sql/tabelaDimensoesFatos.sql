@@ -1,6 +1,10 @@
 -- Dimensão Cliente
 CREATE TABLE Dim_Cliente (
     ID_Cliente INT PRIMARY KEY,
+    ID_Cliente_Syma INT,
+    ID_Cliente_Rayssa INT,
+    ID_Cliente_Antonny INT,
+    ID_Cliente_Siqueira INT,
     Nome VARCHAR(255) NOT NULL,
     Tipo_Cliente VARCHAR(20),
     Documento VARCHAR(20) NOT NULL,
@@ -17,6 +21,10 @@ CREATE TABLE Dim_Cliente (
 -- Dimensão Veículo
 CREATE TABLE Dim_Veiculo (
     ID_Veiculo INT PRIMARY KEY,
+    ID_Veiculo_Syma INT,
+    ID_Veiculo_Rayssa INT,
+    ID_Veiculo_Antonny INT,
+    ID_Veiculo_Siqueira INT,
     Placa VARCHAR(10) NOT NULL,
     Chassis VARCHAR(50),
     ID_Grupo INT,
@@ -36,6 +44,10 @@ CREATE TABLE Dim_Veiculo (
 -- Dimensão Categoria
 CREATE TABLE Dim_Categoria (
     ID_Categoria INT PRIMARY KEY,
+    ID_Categoria_Syma INT,
+    ID_Categoria_Rayssa INT,
+    ID_Categoria_Antonny INT,
+    ID_Categoria_Siqueira INT,
     Nome_Categoria VARCHAR(50),
     Valor_por_Dia DECIMAL(10, 2)
 );
@@ -43,6 +55,10 @@ CREATE TABLE Dim_Categoria (
 -- Dimensão Pátio
 CREATE TABLE Dim_Patio (
     ID_Patio INT PRIMARY KEY,
+    ID_Patio_Syma INT,
+    ID_Patio_Rayssa INT, 
+    ID_Patio_Antonny INT, 
+    ID_Patio_Siqueira INT, 
     Nome VARCHAR(50),
     Localizacao TEXT,
     Capacidade INT,
