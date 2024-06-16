@@ -9,7 +9,6 @@ CREATE TABLE Dim_Cliente (
     Email VARCHAR(255),
     CNH VARCHAR(20),
     Data_Validade_CNH DATE,
-    PessoaFisica BOOLEAN,
     Data_Nascimento DATE,
     Created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     Updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -20,7 +19,7 @@ CREATE TABLE Dim_Veiculo (
     ID_Veiculo INT PRIMARY KEY,
     Placa VARCHAR(10) NOT NULL,
     Chassis VARCHAR(50),
-    Grupo VARCHAR(50),
+    ID_Grupo INT,
     Marca VARCHAR(50),
     Modelo VARCHAR(50),
     Cor VARCHAR(20),
